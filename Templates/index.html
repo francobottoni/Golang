@@ -27,7 +27,7 @@
     Variables
     {{with $valor := "Mi variable"}}
         <p>{{$valor}}</p>
-    {{end}}-->
+    {{end}}
 
     <h1>Bucles</h1>
 
@@ -35,7 +35,12 @@
         {{ range .Cursos }}
             <li>{{ .Nombre }}</li>
         {{ end }}
-    </ul>
+    </ul>-->
+
+    {{ template "header" }}
+
+    <h3>Hola {{ .Name }}</h3>
+    <p>Edad {{ .Edad }}</p>
 
 </body>
 </html>

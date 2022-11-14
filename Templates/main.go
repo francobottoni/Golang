@@ -9,14 +9,8 @@ import (
 type Usuarios struct {
 	Name   string
 	Edad   int
-	Activo bool
-	Admin  bool
-	Cursos []Curso
 }
 
-type Curso struct {
-	Nombre string
-}
 
 func Saludar() string {
 	return "Hola desde una funcion"
@@ -26,13 +20,13 @@ func Saludar() string {
 func Index(rw http.ResponseWriter, r *http.Request) {
 
 	//fmt.Fprintln(rw, "Hola mundo!")
-	template, err := template.ParseFiles("index.html")
-	//usuario := Usuarios{Edad: 23, Name: "franco", Activo: true, Admin: false, Cursos: cursos}
+	template, err := template.New("index.html").ParseFiles("index.html", "base.html")
+	usuario := Usuarios{Edad: 23, Name: "franco"}
 
 	if err != nil {
 		panic(err)
 	} else {
-		template.Execute(rw, nil)
+		template.Execute(rw, usuario)
 	}
 }
 
