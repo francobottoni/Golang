@@ -1,8 +1,15 @@
 package main
 
-import "gomysql/db"
+import (
+	"fmt"
+	"gomysql/db"
+	"gomysql/models"
+)
 
-func main(){
+func main() {
 	db.Connect()
+	fmt.Println(db.ExistsTable("users"))
+	db.CreateTable(models.UserSchema, "users")
+	db.Ping()
 	db.Close()
 }
