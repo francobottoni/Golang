@@ -68,6 +68,9 @@ func GetUser(id int) (*User, error) {
 		for rows.Next() {
 			rows.Scan(&user.Id, &user.UserName, &user.Password, &user.Email)
 		}
+		if user.Id == 0 {
+			return nil, nil
+		}
 		return user, nil
 	}
 
