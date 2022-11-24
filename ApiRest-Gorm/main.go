@@ -8,6 +8,10 @@ import (
 )
 
 func main() {
+
+	// Se va a migrar cuando no exista
+	// models.MigrateUser()
+
 	// Rutas
 	mux := mux.NewRouter()
 
